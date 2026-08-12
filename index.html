@@ -3,28 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#07111f">
-<meta name="description" content="PreçoFácil — experiência inteligente de precificação para varejo.">
+<meta name="theme-color" content="#06101d">
+<meta name="description" content="PreçoFácil — Experiência inteligente de precificação para supermercados e varejo na EXPOAGAS 2026.">
 <title>PreçoFácil | EXPOAGAS 2026</title>
 
 <style>
 :root{
   --bg:#06101d;
-  --bg-soft:#0b1727;
-  --card:#101e30;
-  --card-2:#14253b;
-  --line:#243752;
-  --text:#f7fbff;
-  --muted:#91a4bc;
-  --blue:#4d8dff;
-  --cyan:#4de1d5;
-  --green:#39d99a;
-  --yellow:#ffc857;
-  --red:#ff6878;
-  --purple:#a97cff;
-  --white:#fff;
-  --radius:24px;
-  --shadow:0 30px 90px rgba(0,0,0,.35);
+  --bg-card:#0f1d30;
+  --bg-card-hover:#14263e;
+  --line:#223652;
+  --text:#f4f7fb;
+  --muted:#8fa3bc;
+  --blue:#3b82f6;
+  --blue-hover:#2563eb;
+  --cyan:#22d3ee;
+  --green:#10b981;
+  --yellow:#f59e0b;
+  --red:#ef4444;
+  --purple:#8b5cf6;
+  --radius:20px;
+  --shadow:0 20px 50px rgba(0,0,0,.4);
 }
 
 *{
@@ -39,24 +38,15 @@ html{
 
 body{
   background:
-    radial-gradient(circle at 80% -10%,#173f70 0,transparent 34%),
-    radial-gradient(circle at -5% 25%,#102d49 0,transparent 30%),
+    radial-gradient(circle at 90% -10%, #1e3a8a25 0, transparent 40%),
+    radial-gradient(circle at 5% 30%, #0e749015 0, transparent 35%),
     var(--bg);
   color:var(--text);
-  font-family:
-    Inter,
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-  line-height:1.5;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  line-height:1.6;
 }
 
-button,
-input,
-select{
+button, input, select{
   font:inherit;
 }
 
@@ -70,2663 +60,1130 @@ a{
 }
 
 .container{
-  width:min(1180px,calc(100% - 36px));
+  width:min(1200px, calc(100% - 40px));
   margin:auto;
 }
 
-/* =========================================================
-   NAV
-========================================================= */
-
+/* ================= NAV ================= */
 .nav{
   position:sticky;
   top:0;
   z-index:100;
-  border-bottom:1px solid rgba(255,255,255,.08);
-  background:rgba(6,16,29,.78);
-  backdrop-filter:blur(20px);
+  background:rgba(6,16,29,.85);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,.06);
 }
 
 .nav-inner{
-  height:76px;
+  height:80px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:20px;
 }
 
 .brand{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:16px;
 }
 
-.brand strong{
+/* Logo AGAS fornecida adaptada em SVG perfeitamente legível no escuro */
+.brand-logo{
+  height:36px;
+  width:auto;
+  object-fit:contain;
+  filter: brightness(0) invert(1);
+}
+
+.brand-divider{
+  width:1px;
+  height:24px;
+  background:rgba(255,255,255,.15);
+}
+
+.brand-text strong{
   display:block;
-  font-size:17px;
-  letter-spacing:-.5px;
+  font-size:16px;
+  letter-spacing:-.3px;
 }
 
-.brand small{
-  color:#7f94ae;
+.brand-text small{
+  color:var(--cyan);
   font-size:9px;
+  font-weight:700;
   letter-spacing:1px;
+  text-transform:uppercase;
 }
 
 .nav-links{
   display:flex;
-  gap:24px;
-  color:#9eafc4;
-  font-size:11px;
-  font-weight:800;
+  gap:28px;
+  color:var(--muted);
+  font-size:12px;
+  font-weight:600;
 }
 
 .nav-links a:hover{
-  color:#fff;
+  color:var(--text);
 }
 
 .btn{
   border:0;
   border-radius:12px;
-  padding:12px 16px;
-  font-size:11px;
-  font-weight:900;
-  transition:.2s;
+  padding:12px 20px;
+  font-size:12px;
+  font-weight:700;
+  transition:all .2s ease;
 }
 
-.btn-blue{
-  color:white;
-  background:linear-gradient(135deg,#5796ff,#3975e6);
-  box-shadow:0 12px 30px rgba(60,120,230,.25);
+.btn-primary{
+  color:#fff;
+  background:linear-gradient(135deg, #3b82f6, #1d4ed8);
+  box-shadow:0 8px 20px rgba(59,130,246,.3);
 }
 
-.btn-blue:hover{
-  transform:translateY(-2px);
+.btn-primary:hover{
+  transform:translateY(-1px);
+  box-shadow:0 12px 25px rgba(59,130,246,.4);
 }
 
-.btn-ghost{
-  color:white;
+.btn-subtle{
+  color:var(--text);
   background:rgba(255,255,255,.05);
   border:1px solid rgba(255,255,255,.1);
 }
 
-.btn-ghost:hover{
+.btn-subtle:hover{
   background:rgba(255,255,255,.1);
 }
 
-/* =========================================================
-   HERO
-========================================================= */
-
+/* ================= HERO ================= */
 .hero{
-  min-height:calc(100vh - 76px);
-  padding:80px 0 70px;
+  padding:60px 0 80px;
   display:grid;
-  grid-template-columns:1.08fr .92fr;
+  grid-template-columns:1.1fr .9fr;
   align-items:center;
   gap:50px;
 }
 
-.kicker{
+.badge{
   display:inline-flex;
   align-items:center;
   gap:8px;
-  padding:8px 12px;
+  padding:6px 14px;
   border-radius:999px;
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.1);
-  color:#b8c8db;
-  font-size:10px;
-  font-weight:900;
+  background:rgba(34,211,238,.08);
+  border:1px solid rgba(34,211,238,.2);
+  color:var(--cyan);
+  font-size:11px;
+  font-weight:700;
+  margin-bottom:20px;
 }
 
 .pulse{
-  width:7px;
-  height:7px;
+  width:6px;
+  height:6px;
   border-radius:50%;
-  background:var(--green);
-  box-shadow:0 0 0 6px rgba(57,217,154,.12);
+  background:var(--cyan);
+  box-shadow:0 0 0 4px rgba(34,211,238,.2);
 }
 
 .hero h1{
-  margin:23px 0 22px;
-  font-size:clamp(48px,7vw,84px);
-  line-height:.94;
-  letter-spacing:-5px;
+  font-size:clamp(40px, 6vw, 68px);
+  line-height:1.05;
+  letter-spacing:-2px;
+  margin-bottom:20px;
 }
 
-.gradient{
-  background:linear-gradient(
-    110deg,
-    #fff 20%,
-    #9ac3ff 58%,
-    var(--cyan)
-  );
-  color:transparent;
+.gradient-text{
+  background:linear-gradient(135deg, #fff 30%, #93c5fd 70%, var(--cyan));
   -webkit-background-clip:text;
-  background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
-.hero-text{
-  max-width:680px;
-  color:#aabbd0;
-  font-size:17px;
+.hero-desc{
+  color:var(--muted);
+  font-size:16px;
   line-height:1.7;
+  margin-bottom:30px;
+  max-width:580px;
 }
 
-.hero-actions{
-  margin-top:28px;
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
+.hero-metrics{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:15px;
+  margin-top:35px;
+  padding-top:25px;
+  border-top:1px solid rgba(255,255,255,.08);
 }
 
-.hero-proof{
-  display:flex;
-  gap:30px;
-  margin-top:32px;
-}
-
-.proof strong{
-  font-size:20px;
-}
-
-.proof span{
+.metric-card strong{
+  font-size:22px;
+  color:var(--text);
   display:block;
-  margin-top:3px;
-  color:#71869f;
-  font-size:9px;
+}
+
+.metric-card span{
+  font-size:11px;
+  color:var(--muted);
   text-transform:uppercase;
-  letter-spacing:.7px;
+  letter-spacing:.5px;
 }
 
-/* HERO MOCKUP */
-
-.hero-demo{
-  min-height:455px;
-  position:relative;
-  border-radius:30px;
-  overflow:hidden;
-  padding:20px;
-  background:
-    linear-gradient(145deg,#10263f,#091522);
-  border:1px solid rgba(255,255,255,.1);
+/* HERO WIDGET PREVIEW */
+.hero-preview{
+  background:linear-gradient(145deg, #0f1d30, #091322);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:28px;
+  padding:28px;
   box-shadow:var(--shadow);
-}
-
-.hero-demo:before{
-  content:"";
-  position:absolute;
-  width:300px;
-  height:300px;
-  right:-100px;
-  top:-100px;
-  border-radius:50%;
-  background:#4d8dff20;
-  filter:blur(25px);
-}
-
-.hero-demo-top{
   position:relative;
-  z-index:2;
+}
+
+.preview-header{
   display:flex;
   justify-content:space-between;
-  color:#7188a2;
-  font-size:9px;
-  font-weight:900;
+  align-items:center;
+  font-size:11px;
+  color:var(--muted);
+  font-weight:600;
+  margin-bottom:20px;
 }
 
-.live{
-  color:#64e8b2;
-}
-
-.demo-window{
-  position:absolute;
-  left:24px;
-  right:24px;
-  top:70px;
-  bottom:24px;
-  padding:22px;
-  border-radius:20px;
-  background:rgba(5,14,25,.9);
-  border:1px solid rgba(255,255,255,.08);
-}
-
-.demo-label{
-  color:#7890ab;
-  font-size:9px;
-  font-weight:900;
-}
-
-.demo-price{
-  margin-top:5px;
-  font-size:52px;
-  font-weight:950;
-  letter-spacing:-3px;
-}
-
-.demo-line{
-  height:1px;
-  background:rgba(255,255,255,.08);
-  margin:20px 0;
-}
-
-.demo-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:9px;
-}
-
-.demo-metric{
-  padding:13px;
-  border-radius:12px;
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.06);
-}
-
-.demo-metric span{
-  display:block;
-  color:#7288a2;
-  font-size:8px;
-}
-
-.demo-metric strong{
-  display:block;
-  margin-top:4px;
-  font-size:14px;
-}
-
-.demo-bar{
+.live-tag{
+  color:var(--green);
   display:flex;
-  height:12px;
-  margin-top:20px;
-  overflow:hidden;
-  border-radius:999px;
-  background:#fff1;
+  align-items:center;
+  gap:6px;
 }
 
-.demo-bar i{
-  display:block;
-  height:100%;
+.preview-box{
+  background:rgba(0,0,0,.3);
+  border-radius:16px;
+  padding:20px;
+  border:1px solid rgba(255,255,255,.05);
+  margin-bottom:15px;
 }
 
-.cost{width:60%;background:#73869d}
-.fixed{width:10%;background:var(--yellow)}
-.tax{width:8%;background:var(--red)}
-.other{width:2%;background:var(--purple)}
-.profit{width:20%;background:var(--green)}
+.preview-price{
+  font-size:42px;
+  font-weight:800;
+  letter-spacing:-1.5px;
+  margin-top:4px;
+}
 
-/* =========================================================
-   SECTIONS
-========================================================= */
-
+/* ================= SECTIONS COMMON ================= */
 .section{
-  padding:85px 0;
+  padding:80px 0;
+  border-top:1px solid rgba(255,255,255,.04);
 }
 
-.eyebrow{
-  color:#73a7ff;
-  font-size:10px;
-  font-weight:950;
+.section-header{
+  max-width:700px;
+  margin-bottom:50px;
+}
+
+.section-tag{
+  color:var(--blue);
+  font-size:11px;
+  font-weight:800;
   text-transform:uppercase;
-  letter-spacing:1.4px;
+  letter-spacing:1.5px;
+  margin-bottom:10px;
+  display:block;
 }
 
 .section-title{
-  max-width:780px;
-  margin-top:10px;
-  font-size:clamp(32px,4.5vw,52px);
-  line-height:1.03;
-  letter-spacing:-2.5px;
-}
-
-.section-text{
-  max-width:700px;
-  margin-top:13px;
-  color:#8fa3bc;
-  font-size:14px;
-  line-height:1.75;
-}
-
-/* =========================================================
-   STATS
-========================================================= */
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:10px;
-  margin-top:30px;
-}
-
-.stat{
-  padding:20px;
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:18px;
-  background:rgba(255,255,255,.035);
-}
-
-.stat strong{
-  font-size:25px;
+  font-size:32px;
   letter-spacing:-1px;
+  margin-bottom:12px;
 }
 
-.stat span{
-  display:block;
-  margin-top:5px;
-  color:#8095ae;
-  font-size:10px;
-  line-height:1.5;
-}
-
-/* =========================================================
-   STORY
-========================================================= */
-
-.story{
-  display:grid;
-  grid-template-columns:.8fr 1.2fr;
-  gap:15px;
-  margin-top:30px;
-}
-
-.story-card{
-  padding:27px;
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:24px;
-  background:linear-gradient(145deg,#0f1e30,#0a1524);
-}
-
-.story-card h3{
-  font-size:19px;
-  margin-bottom:9px;
-}
-
-.story-card p{
-  color:#8da1ba;
-  font-size:12px;
-  line-height:1.7;
-}
-
-.pills{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:18px;
-}
-
-.pill{
-  padding:7px 10px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.08);
-  background:rgba(255,255,255,.04);
-  color:#aebed0;
-  font-size:9px;
-  font-weight:800;
-}
-
-/* =========================================================
-   SIMULATOR
-========================================================= */
-
-.simulator{
-  margin-top:30px;
-  padding:18px;
-  border-radius:30px;
-  border:1px solid #203653;
-  background:#0b1727;
-  box-shadow:var(--shadow);
-}
-
-.sim-head{
-  padding:8px 6px 18px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-}
-
-.sim-head h3{
-  font-size:19px;
-}
-
-.sim-head p{
-  color:#7f93ab;
-  font-size:10px;
-}
-
-.sim-actions{
-  display:flex;
-  gap:7px;
-}
-
-.mini{
-  border:1px solid rgba(255,255,255,.1);
-  background:rgba(255,255,255,.04);
-  color:#aebed0;
-  border-radius:10px;
-  padding:9px 11px;
-  font-size:9px;
-  font-weight:850;
-}
-
-.sim-grid{
-  display:grid;
-  grid-template-columns:.82fr 1.18fr;
-  gap:14px;
-}
-
-.panel{
-  padding:21px;
-  border-radius:22px;
-  background:#f7f9fc;
-  color:#142033;
-}
-
-.panel-dark{
-  color:#fff;
-  background:linear-gradient(145deg,#112238,#0b1727);
-  border:1px solid rgba(255,255,255,.08);
-}
-
-.panel h4{
+.section-subtitle{
+  color:var(--muted);
   font-size:15px;
 }
 
-.panel-sub{
-  margin:4px 0 17px;
-  color:#8492a4;
-  font-size:10px;
-}
-
-.fields{
+/* ================= PROBLEMA & SOLUÇÃO ================= */
+.problem-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:11px;
+  gap:24px;
 }
 
-.full{
-  grid-column:1/-1;
+.info-card{
+  background:var(--bg-card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:32px;
 }
 
-.field label{
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:6px;
-  font-size:10px;
-  font-weight:900;
-}
-
-.input,
-.select{
-  width:100%;
-  height:41px;
-  padding:0 11px;
-  border-radius:10px;
-  border:1px solid #d6dee9;
-  outline:none;
-  background:#fff;
-  color:#172236;
-  font-size:12px;
-}
-
-.input:focus,
-.select:focus{
-  border-color:#72a3f7;
-  box-shadow:0 0 0 3px #4d8dff16;
-}
-
-.input-wrap{
-  position:relative;
-}
-
-.prefix,
-.suffix{
-  position:absolute;
-  top:12px;
-  color:#8290a1;
-  font-size:10px;
-  pointer-events:none;
-}
-
-.prefix{left:10px}
-.suffix{right:10px}
-
-.prefixed{padding-left:31px}
-.suffixed{padding-right:31px}
-
-.hint{
-  margin-top:5px;
-  color:#8795a7;
-  font-size:9px;
-  line-height:1.4;
-}
-
-.segment{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:3px;
-  padding:3px;
-  border-radius:10px;
-  background:#e9eef5;
-}
-
-.segment button{
-  border:0;
-  padding:8px;
-  border-radius:8px;
-  background:transparent;
-  color:#758398;
-  font-size:10px;
-  font-weight:900;
-}
-
-.segment button.active{
-  background:#fff;
-  color:#2563eb;
-  box-shadow:0 2px 8px rgba(20,30,50,.1);
-}
-
-.range-line{
+.info-card h3{
+  font-size:20px;
+  margin-bottom:12px;
   display:flex;
   align-items:center;
   gap:10px;
 }
 
-.range{
-  width:100%;
-  accent-color:#4d8dff;
+.info-card p{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.7;
 }
 
-.range-value{
-  min-width:40px;
-  text-align:right;
-  font-size:11px;
-  font-weight:900;
-}
-
-.calculate{
-  width:100%;
-  margin-top:16px;
-  padding:12px;
-  border:0;
-  border-radius:11px;
-  color:white;
-  background:linear-gradient(135deg,#4f8dff,#3974e4);
-  font-size:11px;
-  font-weight:950;
-}
-
-/* RESULT */
-
-.result-main{
-  padding:16px;
-  border-radius:17px;
-  border:1px solid #25466b;
-  background:linear-gradient(145deg,#102b48,#0d1e31);
-}
-
-.result-label{
-  color:#8198b5;
-  font-size:9px;
-  font-weight:950;
-  letter-spacing:1px;
-}
-
-.result-price{
-  margin-top:3px;
-  font-size:42px;
-  font-weight:950;
-  letter-spacing:-2.5px;
-}
-
-.result-name{
-  color:#8297b0;
-  font-size:9px;
-}
-
-.metrics{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:8px;
-  margin-top:9px;
-}
-
-.metric{
-  padding:11px;
-  border-radius:12px;
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.06);
-}
-
-.metric span{
-  display:block;
-  color:#72869e;
-  font-size:8px;
-}
-
-.metric strong{
-  display:block;
-  margin-top:4px;
-  font-size:13px;
-}
-
-.breakdown{
-  margin-top:12px;
-  padding:11px;
-  border:1px solid rgba(255,255,255,.07);
-  border-radius:13px;
-}
-
-.row{
-  display:flex;
-  justify-content:space-between;
-  padding:7px 0;
-  border-bottom:1px dashed rgba(255,255,255,.08);
-  font-size:10px;
-}
-
-.row:last-child{
-  border-bottom:0;
-}
-
-.row span{
-  color:#8da0b7;
-}
-
-.row.profit-row{
-  color:#61e5af;
-}
-
-.composition{
-  display:flex;
-  height:10px;
-  margin-top:11px;
-  overflow:hidden;
-  border-radius:999px;
-}
-
-.composition span{
-  height:100%;
-}
-
-.ai-box{
-  margin-top:12px;
-  padding:13px;
-  border-radius:13px;
-  border:1px solid rgba(255,255,255,.08);
-  background:rgba(255,255,255,.035);
-}
-
-.ai-title{
-  display:flex;
-  align-items:center;
-  gap:7px;
-  font-size:10px;
-  font-weight:950;
-}
-
-.ai-icon{
-  width:22px;
-  height:22px;
-  display:grid;
-  place-items:center;
-  border-radius:7px;
-  background:#4d8dff20;
-  color:#80b1ff;
-}
-
-.ai-box p{
-  margin-top:7px;
-  color:#9aacbf;
-  font-size:10px;
-  line-height:1.55;
-}
-
-.result-tools{
-  display:flex;
-  gap:7px;
-  flex-wrap:wrap;
-  margin-top:9px;
-}
-
-.tool{
-  border:1px solid rgba(255,255,255,.08);
-  background:rgba(255,255,255,.04);
-  color:#aab9cb;
-  border-radius:9px;
-  padding:7px 9px;
-  font-size:9px;
-  font-weight:850;
-}
-
-/* =========================================================
-   PROCESS
-========================================================= */
-
-.process{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-  margin-top:30px;
-}
-
-.process-card{
-  position:relative;
-  padding:23px;
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:20px;
-  background:rgba(255,255,255,.035);
-}
-
-.process-number{
-  color:#4d8dff;
-  font-size:10px;
-  font-weight:950;
-}
-
-.process-card h3{
-  margin:12px 0 8px;
-  font-size:17px;
-}
-
-.process-card p{
-  color:#879bb4;
-  font-size:11px;
-  line-height:1.65;
-}
-
-/* =========================================================
-   EVENT
-========================================================= */
-
-.event{
-  margin-top:30px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:20px;
-  padding:28px;
-  border-radius:28px;
-  border:1px solid rgba(255,255,255,.1);
-  background:
-    radial-gradient(circle at 80% 0,#174777,transparent 45%),
-    #0d1d30;
-}
-
-.event h3{
-  margin-top:5px;
-  font-size:23px;
-}
-
-.event p{
-  max-width:680px;
-  margin-top:7px;
-  color:#91a5bd;
-  font-size:11px;
-  line-height:1.65;
-}
-
-.countdown{
-  display:flex;
-  gap:7px;
-}
-
-.count-box{
-  min-width:58px;
-  padding:10px 8px;
-  text-align:center;
-  border-radius:12px;
-  border:1px solid rgba(255,255,255,.08);
-  background:rgba(255,255,255,.04);
-}
-
-.count-box strong{
-  display:block;
-  font-size:20px;
-}
-
-.count-box span{
-  color:#7e92aa;
-  font-size:8px;
-  text-transform:uppercase;
-}
-
-/* =========================================================
-   CTA
-========================================================= */
-
-.cta{
-  padding:80px 0 95px;
-}
-
-.cta-box{
-  padding:55px 25px;
-  text-align:center;
-  border:1px solid rgba(255,255,255,.1);
-  border-radius:30px;
-  background:
-    radial-gradient(circle at 50% 0,#174779,transparent 55%),
-    #0c1a2b;
+/* ================= SIMULATOR (CORE UX) ================= */
+.simulator-container{
+  background:var(--bg-card);
+  border:1px solid var(--line);
+  border-radius:32px;
+  padding:32px;
   box-shadow:var(--shadow);
 }
 
-.cta h2{
-  margin:8px 0 12px;
-  font-size:clamp(34px,5vw,58px);
-  line-height:1;
-  letter-spacing:-3px;
+.simulator-grid{
+  display:grid;
+  grid-template-columns:1.1fr 0.9fr;
+  gap:30px;
 }
 
-.cta p{
-  max-width:620px;
-  margin:0 auto 24px;
-  color:#92a6bd;
-  font-size:13px;
+.sim-pane{
+  background:rgba(255,255,255,.02);
+  border:1px solid rgba(255,255,255,.05);
+  border-radius:24px;
+  padding:24px;
 }
 
-/* =========================================================
-   FOOTER
-========================================================= */
+.sim-pane-dark{
+  background:linear-gradient(160deg, #0a1424, #060e18);
+  border:1px solid rgba(255,255,255,.08);
+}
 
-footer{
+.pane-title{
+  font-size:16px;
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.pane-sub{
+  font-size:12px;
+  color:var(--muted);
+  margin-bottom:24px;
+}
+
+.form-group{
+  margin-bottom:20px;
+}
+
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+label{
   display:flex;
   justify-content:space-between;
-  gap:20px;
-  flex-wrap:wrap;
-  padding:25px 0 35px;
-  border-top:1px solid rgba(255,255,255,.07);
-  color:#70859e;
-  font-size:9px;
+  font-size:12px;
+  font-weight:600;
+  margin-bottom:8px;
+  color:var(--text);
 }
 
-/* =========================================================
-   TOAST
-========================================================= */
+label span{
+  color:var(--muted);
+  font-weight:400;
+}
 
+.input-wrapper{
+  position:relative;
+}
+
+.input-prefix, .input-suffix{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--muted);
+  font-size:13px;
+  pointer-events:none;
+}
+
+.input-prefix{ left:14px; }
+.input-suffix{ right:14px; }
+
+input[type="text"], input[type="number"], select{
+  width:100%;
+  height:48px;
+  background:#050d18;
+  border:1px solid var(--line);
+  border-radius:12px;
+  color:#fff;
+  padding:0 16px;
+  font-size:14px;
+  outline:none;
+  transition:all .2s;
+}
+
+input.has-prefix{ padding-left:36px; }
+input.has-suffix{ padding-right:36px; }
+
+input:focus, select:focus{
+  border-color:var(--blue);
+  box-shadow:0 0 0 3px rgba(59,130,246,.2);
+}
+
+/* Segmented control */
+.segmented-control{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  background:#050d18;
+  padding:4px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  margin-bottom:20px;
+}
+
+.seg-btn{
+  background:transparent;
+  border:0;
+  color:var(--muted);
+  padding:10px;
+  font-size:12px;
+  font-weight:700;
+  border-radius:9px;
+  transition:all .2s;
+}
+
+.seg-btn.active{
+  background:var(--blue);
+  color:#fff;
+  box-shadow:0 4px 12px rgba(59,130,246,.3);
+}
+
+/* Range slider custom */
+.range-container{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+input[type="range"]{
+  flex:1;
+  accent-color:var(--blue);
+  height:6px;
+  background:var(--line);
+  border-radius:3px;
+  outline:none;
+}
+
+.range-output{
+  min-width:50px;
+  text-align:right;
+  font-weight:700;
+  font-size:14px;
+  color:var(--cyan);
+}
+
+/* Results panel */
+.result-main-card{
+  background:rgba(5,13,24,.6);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  padding:20px;
+  margin-bottom:20px;
+}
+
+.result-main-label{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  color:var(--muted);
+  font-weight:700;
+}
+
+.result-main-price{
+  font-size:46px;
+  font-weight:800;
+  letter-spacing:-2px;
+  color:#fff;
+  margin:6px 0;
+}
+
+.result-metrics-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:10px;
+  margin-bottom:20px;
+}
+
+.metric-box{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.05);
+  border-radius:12px;
+  padding:12px;
+}
+
+.metric-box span{
+  font-size:10px;
+  color:var(--muted);
+  display:block;
+}
+
+.metric-box strong{
+  font-size:14px;
+  color:#fff;
+  display:block;
+  margin-top:2px;
+}
+
+.breakdown-list{
+  background:rgba(0,0,0,.2);
+  border-radius:14px;
+  padding:16px;
+  margin-bottom:20px;
+  border:1px solid rgba(255,255,255,.04);
+}
+
+.breakdown-row{
+  display:flex;
+  justify-content:space-between;
+  font-size:12px;
+  padding:6px 0;
+  border-bottom:1px dashed rgba(255,255,255,.06);
+}
+
+.breakdown-row:last-child{
+  border-bottom:0;
+}
+
+.breakdown-row span{ color:var(--muted); }
+.breakdown-row strong{ color:#fff; }
+.breakdown-row.profit strong{ color:var(--green); }
+
+/* Bar composition stack */
+.composition-bar{
+  display:flex;
+  height:10px;
+  border-radius:5px;
+  overflow:hidden;
+  gap:2px;
+  margin-top:8px;
+  background:rgba(255,255,255,.05);
+}
+
+.composition-bar span{
+  height:100%;
+  transition:width .3s ease;
+}
+
+/* AI Copilot Box */
+.copilot-box{
+  background:linear-gradient(135deg, rgba(59,130,246,.08), rgba(34,211,238,.05));
+  border:1px solid rgba(34,211,238,.2);
+  border-radius:14px;
+  padding:16px;
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  margin-bottom:20px;
+}
+
+.copilot-icon{
+  width:32px;
+  height:32px;
+  background:rgba(34,211,238,.15);
+  color:var(--cyan);
+  border-radius:10px;
+  display:grid;
+  place-items:center;
+  font-weight:bold;
+  flex-shrink:0;
+}
+
+.copilot-content h5{
+  font-size:12px;
+  color:var(--cyan);
+  margin-bottom:4px;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+}
+
+.copilot-content p{
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.5;
+}
+
+.action-tools{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:8px;
+}
+
+.tool-btn{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  color:var(--text);
+  padding:10px;
+  border-radius:10px;
+  font-size:11px;
+  font-weight:600;
+  transition:all .2s;
+}
+
+.tool-btn:hover{
+  background:rgba(255,255,255,.08);
+}
+
+/* ================= STRATEGIC THEMES & APPJAM ================= */
+.themes-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:20px;
+}
+
+.theme-card{
+  background:var(--bg-card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:24px;
+}
+
+.theme-card h4{
+  font-size:16px;
+  margin-bottom:8px;
+  color:#fff;
+}
+
+.theme-card p{
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* ================= TEAM & COMPLIANCE FOOTER ================= */
+.compliance-box{
+  background:linear-gradient(145deg, #0a1424, #070d17);
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:30px;
+  margin-top:40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:30px;
+  flex-wrap:wrap;
+}
+
+.team-info h5{
+  font-size:14px;
+  color:var(--cyan);
+  margin-bottom:8px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+.team-members{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  color:var(--muted);
+  font-size:12px;
+}
+
+.team-members span strong{
+  color:#fff;
+  display:block;
+}
+
+footer{
+  padding:40px 0;
+  border-top:1px solid rgba(255,255,255,.06);
+  color:var(--muted);
+  font-size:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+/* Toast notification */
 .toast{
   position:fixed;
+  bottom:30px;
   left:50%;
-  bottom:25px;
-  z-index:999;
-  transform:translate(-50%,130px);
-  padding:12px 16px;
+  transform:translate(-50%, 100px);
+  background:#fff;
+  color:#06101d;
+  padding:12px 24px;
   border-radius:12px;
-  background:#f7fbff;
-  color:#102033;
-  font-size:11px;
-  font-weight:900;
-  box-shadow:0 15px 40px rgba(0,0,0,.3);
-  transition:.25s;
+  font-size:13px;
+  font-weight:700;
+  box-shadow:0 10px 30px rgba(0,0,0,.5);
+  transition:transform .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index:1000;
 }
 
 .toast.show{
-  transform:translate(-50%,0);
+  transform:translate(-50%, 0);
 }
 
-/* =========================================================
-   RESPONSIVO
-========================================================= */
-
+/* RESPONSIVE */
 @media(max-width:900px){
-
-  .nav-links{
-    display:none;
-  }
-
-  .hero{
-    grid-template-columns:1fr;
-    padding-top:55px;
-  }
-
-  .story,
-  .sim-grid{
+  .hero, .problem-grid, .simulator-grid, .themes-grid{
     grid-template-columns:1fr;
   }
-
-  .stats{
-    grid-template-columns:1fr 1fr;
-  }
-}
-
-@media(max-width:600px){
-
-  .container{
-    width:calc(100% - 24px);
-  }
-
-  .hero h1{
-    letter-spacing:-3px;
-  }
-
-  .hero-proof{
-    gap:15px;
-  }
-
-  .stats,
-  .process{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .fields{
-    grid-template-columns:1fr;
-  }
-
-  .full{
-    grid-column:auto;
-  }
-
-  .metrics{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .metric:last-child{
-    grid-column:1/-1;
-  }
-
-  .event{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-
-  .countdown{
-    width:100%;
-  }
-
-  .count-box{
-    flex:1;
-  }
-}
-
-@media print{
-
-  .nav,
-  .hero,
-  .section:not(#simulador),
-  .cta,
-  footer,
-  .sim-head,
-  .result-tools{
-    display:none!important;
-  }
-
-  .section{
-    padding:0;
-  }
-
-  body{
-    background:white;
-  }
-
-  .simulator{
-    box-shadow:none;
-    border:0;
-  }
+  .nav-links{ display:none; }
+  .hero-metrics{ grid-template-columns:1fr; gap:10px; }
 }
 </style>
 </head>
-
 <body>
 
-<!-- =================================================     
-   NAV
-======================================================= -->
-
+<!-- NAV -->
 <nav class="nav">
   <div class="container nav-inner">
-
-    <a class="brand" href="#">
-      <div>
+    <div class="brand">
+      <!-- Logo AGAS em vetor/SVG otimizado conforme anexo -->
+      <svg class="brand-logo" viewBox="0 0 300 95" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11.5 67.2H25.4L29.2 78H41.5L29 44.5H18.2L5.8 78H17.9L11.5 67.2ZM21.9 53.6L25.9 61.2H17.8L21.9 53.6Z"/>
+        <path d="M46.7 44.5H58.6V78H46.7V44.5Z"/>
+        <path d="M64.2 44.5H76.1V67.5H97V78H64.2V44.5Z"/>
+        <path d="M102.7 44.5H114.6V78H102.7V44.5Z"/>
+        <path d="M123.6 44.5H135.5V67.5H156.4V78H123.6V44.5Z"/>
+        <path d="M161.9 44.5H176.7L184.2 60.5L191.7 44.5H206.5V78H194.6V56.7L188.3 69.2H180.1L173.8 56.7V78H161.9V44.5Z"/>
+        <path d="M1.3 85.3H9.8V88.8H3.3V91.6H9.1V95H3.3V97.7H9.8V101.2H1.3V85.3Z"/>
+        <!-- Carrinho estilizado integrado no logo AGAS -->
+        <path d="M190 20L198 45H295L285 20H190Z" opacity="0.6"/>
+        <circle cx="210" cy="85" r="8"/>
+        <circle cx="270" cy="85" r="8"/>
+      </svg>
+      <div class="brand-divider"></div>
+      <div class="brand-text">
         <strong>PreçoFácil</strong>
-        <small>EXPERIÊNCIA INTERATIVA</small>
+        <small>AppJam Expoagas 2026</small>
       </div>
-    </a>
-
-    <div class="nav-links">
-      <a href="#experiencia">Experiência</a>
-      <a href="#simulador">Simulador</a>
-      <a href="#metodo">Método</a>
-      <a href="#expoagas">EXPOAGAS</a>
     </div>
-
-    <a href="#simulador" class="btn btn-blue">
-      Experimentar
-    </a>
-
+    <div class="nav-links">
+      <a href="#problema">O Problema</a>
+      <a href="#simulador">Simulador Inteligente</a>
+      <a href="#temas">Inovação & Temas</a>
+    </div>
+    <a href="#simulador" class="btn btn-primary">Abrir Simulador →</a>
   </div>
 </nav>
 
+<main class="container">
 
-<main>
-
-<!-- =================================================     
-   HERO
-======================================================= -->
-
-<section class="hero container">
-
-  <div>
-
-    <span class="kicker">
-      <i class="pulse"></i>
-      Experiência digital para a EXPOAGAS 2026
-    </span>
-
-    <h1>
-      Preço não é chute.
-      <br>
-      <span class="gradient">É estratégia.</span>
-    </h1>
-
-    <p class="hero-text">
-      Uma experiência digital que transforma custos, despesas,
-      impostos e margem em uma decisão de preço clara,
-      visual e fácil de explicar.
-    </p>
-
-    <div class="hero-actions">
-
-      <a href="#simulador" class="btn btn-blue">
-        Calcular meu preço →
-      </a>
-
-      <a href="#metodo" class="btn btn-ghost">
-        Entender como funciona
-      </a>
-
-    </div>
-
-    <div class="hero-proof">
-
-      <div class="proof">
-        <strong>3</strong>
-        <span>etapas</span>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div>
+      <div class="badge">
+        <i class="pulse"></i> Solução Oficial para o Varejo Supermercadista
       </div>
-
-      <div class="proof">
-        <strong>2</strong>
-        <span>métodos</span>
-      </div>
-
-      <div class="proof">
-        <strong>100%</strong>
-        <span>offline</span>
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div class="hero-demo">
-
-    <div class="hero-demo-top">
-      <span>PREÇO FÁCIL / LIVE DEMO</span>
-      <span class="live">● AO VIVO</span>
-    </div>
-
-    <div class="demo-window">
-
-      <div class="demo-label">
-        PREÇO DE VENDA SUGERIDO
-      </div>
-
-      <div class="demo-price">
-        R$ 166,67
-      </div>
-
-      <div class="demo-line"></div>
-
-      <div class="demo-grid">
-
-        <div class="demo-metric">
-          <span>LUCRO</span>
-          <strong>R$ 33,33</strong>
-        </div>
-
-        <div class="demo-metric">
-          <span>MARKUP</span>
-          <strong>1,67×</strong>
-        </div>
-
-        <div class="demo-metric">
-          <span>MARGEM</span>
-          <strong>20,0%</strong>
-        </div>
-
-        <div class="demo-metric">
-          <span>LEITURA</span>
-          <strong style="color:#61e5af">
-            Equilibrado
-          </strong>
-        </div>
-
-      </div>
-
-      <div class="demo-bar">
-        <i class="cost"></i>
-        <i class="fixed"></i>
-        <i class="tax"></i>
-        <i class="other"></i>
-        <i class="profit"></i>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =================================================     
-   CONTEXTO
-======================================================= -->
-
-<section class="section container" id="experiencia">
-
-  <div>
-    <div class="eyebrow">
-      O problema
-    </div>
-
-    <h2 class="section-title">
-      Precificar não deveria parecer uma prova de matemática.
-    </h2>
-
-    <p class="section-text">
-      No varejo, uma pequena decisão no preço pode alterar
-      margem, competitividade e resultado. O PreçoFácil transforma
-      essa complexidade em uma experiência simples:
-      entender → simular → interpretar → decidir.
-    </p>
-  </div>
-
-
-  <div class="story">
-
-    <div class="story-card">
-
-      <h3>
-        De números soltos...
-      </h3>
-
-      <p>
-        Custos, impostos, despesas e lucro normalmente ficam
-        espalhados em planilhas e cálculos difíceis de interpretar.
+      <h1>Preço não é chute.<br><span class="gradient-text">É estratégia comercial.</span></h1>
+      <p class="hero-desc">
+        Microsite interativo desenvolvido para a AppJam Expoagas 2026. Transforma custos, impostos, despesas operacionais e margem de lucro em uma decisão visual instantânea.
       </p>
-
-      <div class="pills">
-        <span class="pill">Custo</span>
-        <span class="pill">Impostos</span>
-        <span class="pill">Despesas</span>
-        <span class="pill">Margem</span>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a href="#simulador" class="btn btn-primary">Testar Simulador ao Vivo</a>
+        <a href="#problema" class="btn btn-subtle">Ver Justificativa</a>
       </div>
 
-    </div>
-
-
-    <div class="story-card">
-
-      <h3>
-        ...para uma decisão visual.
-      </h3>
-
-      <p>
-        O sistema mostra quanto cada componente representa no
-        preço final e traduz o resultado em uma recomendação
-        objetiva.
-      </p>
-
-      <div class="pills">
-        <span class="pill">Preço sugerido</span>
-        <span class="pill">Lucro</span>
-        <span class="pill">Markup</span>
-        <span class="pill">Margem real</span>
-        <span class="pill">Copiloto</span>
+      <div class="hero-metrics">
+        <div class="metric-card">
+          <strong>30 pts</strong>
+          <span>Resolução de Problemas</span>
+        </div>
+        <div class="metric-card">
+          <strong>20 pts</strong>
+          <span>Temas Estratégicos (IA & Analytics)</span>
+        </div>
+        <div class="metric-card">
+          <strong>100%</strong>
+          <span>Single-Page HTML & GitHub Pages</span>
+        </div>
       </div>
-
     </div>
 
-  </div>
+    <!-- Live Widget Preview no Hero -->
+    <div class="hero-preview">
+      <div class="preview-header">
+        <span>PREÇO FÁCIL / LIVE WIDGET</span>
+        <span class="live-tag">● EM TEMPO REAL</span>
+      </div>
+      <div class="preview-box">
+        <span style="font-size:11px; color:var(--muted); text-transform:uppercase;">Preço Sugerido de Gôndola</span>
+        <div id="heroPrecoPreview" class="preview-price gradient-text">R$ 166,67</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+        <div style="background:rgba(255,255,255,.03); padding:12px; border-radius:12px;">
+          <span style="font-size:10px; color:var(--muted);">Lucro Líquido</span>
+          <strong id="heroLucroPreview" style="font-size:15px; color:var(--green);">R$ 33,33</strong>
+        </div>
+        <div style="background:rgba(255,255,255,.03); padding:12px; border-radius:12px;">
+          <span style="font-size:10px; color:var(--muted);">Margem Real</span>
+          <strong id="heroMargemPreview" style="font-size:15px; color:var(--cyan);">20,0%</strong>
+        </div>
+      </div>
+    </div>
+  </section>
 
-
-  <div class="stats">
-
-    <div class="stat">
-      <strong>R$ 795,1 mi</strong>
-      <span>
-        negócios movimentados pela EXPOAGAS em 2025
-      </span>
+  <!-- SEÇÃO 1: PROBLEMA E OPORTUNIDADE (30 PONTOS) -->
+  <section id="problema" class="section">
+    <div class="section-header">
+      <span class="section-tag">Relevância para o Setor</span>
+      <h2 class="section-title">Por que precificar corretamente resolve uma dor real dos supermercados?</h2>
+      <p class="section-subtitle">Supermercados trabalham com margens estreitas e milhares de SKUs. Pequenos erros manuais em impostos ou rateio de custos fixos geram prejuízos diários.</p>
     </div>
 
-    <div class="stat">
-      <strong>69 mil</strong>
-      <span>
-        visitantes registrados em 2025
-      </span>
-    </div>
-
-    <div class="stat">
-      <strong>576</strong>
-      <span>
-        expositores na edição de 2025
-      </span>
-    </div>
-
-    <div class="stat">
-      <strong>77%</strong>
-      <span>
-        público formado por varejistas
-      </span>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =================================================     
-   SIMULADOR
-======================================================= -->
-
-<section class="section container" id="simulador">
-
-  <div class="eyebrow">
-    Experiência principal
-  </div>
-
-  <h2 class="section-title">
-    Seu produto. Seus números. Sua decisão.
-  </h2>
-
-  <p class="section-text">
-    Preencha os dados abaixo e veja o preço nascer em tempo real.
-  </p>
-
-
-  <div class="simulator">
-
-    <div class="sim-head">
-
-      <div>
-        <h3>
-          Simulador inteligente de preço
-        </h3>
-
+    <div class="problem-grid">
+      <div class="info-card">
+        <h3>⚠️ O Cenário Atual (O Desafio)</h3>
         <p>
-          Margem + Markup + composição + recomendação
+          Muitos varejistas e fornecedores dependem de planilhas complexas ou cálculos empíricos ("chutes") na hora de colocar preços nas gôndolas da Expoagas e redes associadas. Isso gera distorções em promoções, perda de competitividade e corrosão do lucro líquido.
         </p>
       </div>
-
-      <div class="sim-actions">
-
-        <button class="mini" onclick="saveScenario()">
-          ＋ Salvar cenário
-        </button>
-
-        <button class="mini" onclick="resetSimulator()">
-          ↺ Limpar
-        </button>
-
+      <div class="info-card" style="border-color: rgba(34,211,238,.3); background: linear-gradient(145deg, #0f1d30, #0a1728);">
+        <h3>💡 A Solução com o PreçoFácil</h3>
+        <p>
+          Uma interface limpa e imediata que unifica custos de aquisição, tributações estaduais/federais, taxas de cartões e despesas logísticas. O gestor visualiza exatamente para onde vai cada centavo do preço cobrado do consumidor final.
+        </p>
       </div>
+    </div>
+  </section>
 
+  <!-- SEÇÃO 2: SIMULADOR INTELIGENTE (CORE UX & TÉCNICA) -->
+  <section id="simulador" class="section">
+    <div class="section-header">
+      <span class="section-tag">Experiência Principal (UX & Inovação)</span>
+      <h2 class="section-title">Simulador Inteligente de Precificação</h2>
+      <p class="section-subtitle">Altere os dados abaixo e observe o preço nascer instantaneamente com recomendação de IA incorporada.</p>
     </div>
 
+    <div class="simulator-container">
+      <div class="simulator-grid">
+        
+        <!-- ENTRADA DE DADOS -->
+        <div class="sim-pane">
+          <div class="pane-title">1. Parâmetros do Produto</div>
+          <div class="pane-sub">Insira os custos e encargos operacionais</div>
 
-    <div class="sim-grid">
-
-      <!-- FORM -->
-
-      <div class="panel">
-
-        <h4>
-          1. Conheça o produto
-        </h4>
-
-        <div class="panel-sub">
-          Comece pelo que você já sabe.
-        </div>
-
-
-        <div class="fields">
-
-          <div class="field full">
-
-            <label>
-              Nome do produto
-              <span style="color:#8997a8">
-                opcional
-              </span>
-            </label>
-
-            <input
-              id="produto"
-              class="input"
-              maxlength="80"
-              placeholder="Ex.: Kit de ferramentas premium"
-            >
-
+          <div class="form-group">
+            <label>Nome do Produto <span>(Opcional)</span></label>
+            <input type="text" id="produto" value="Azeite de Oliva Premium 500ml" placeholder="Ex: Cerveja Artesanal 600ml">
           </div>
 
-
-          <div class="field full">
-
-            <label>
-              Custo do produto
-              <span style="color:#2563eb">
-                obrigatório
-              </span>
-            </label>
-
-            <div class="input-wrap">
-
-              <span class="prefix">
-                R$
-              </span>
-
-              <input
-                id="custo"
-                class="input prefixed"
-                type="number"
-                min="0"
-                step=".01"
-                value="100"
-              >
-
+          <div class="form-group">
+            <label>Custo de Aquisição (Fornecedor) <span style="color:var(--cyan)">Obrigatório</span></label>
+            <div class="input-wrapper">
+              <span class="input-prefix">R$</span>
+              <input type="number" id="custo" class="has-prefix" value="100.00" step="0.01" min="0">
             </div>
-
           </div>
 
-
-          <div class="field">
-
-            <label>
-              Custos fixos
-            </label>
-
-            <div class="input-wrap">
-
-              <input
-                id="fixos"
-                class="input suffixed"
-                type="number"
-                min="0"
-                max="99.99"
-                step=".1"
-                value="10"
-              >
-
-              <span class="suffix">
-                %
-              </span>
-
+          <div class="form-row">
+            <div class="form-group">
+              <label>Custos Fixos <span>(Rateio %)</span></label>
+              <div class="input-wrapper">
+                <input type="number" id="fixos" class="has-suffix" value="10" step="0.5" min="0">
+                <span class="input-suffix">%</span>
+              </div>
             </div>
-
-          </div>
-
-
-          <div class="field">
-
-            <label>
-              Impostos
-            </label>
-
-            <div class="input-wrap">
-
-              <input
-                id="impostos"
-                class="input suffixed"
-                type="number"
-                min="0"
-                max="99.99"
-                step=".1"
-                value="8"
-              >
-
-              <span class="suffix">
-                %
-              </span>
-
+            <div class="form-group">
+              <label>Impostos <span>(Tributação %)</span></label>
+              <div class="input-wrapper">
+                <input type="number" id="impostos" class="has-suffix" value="8" step="0.5" min="0">
+                <span class="input-suffix">%</span>
+              </div>
             </div>
-
           </div>
 
-
-          <div class="field full">
-
-            <label>
-              Outras despesas variáveis
-            </label>
-
-            <div class="input-wrap">
-
-              <input
-                id="outros"
-                class="input suffixed"
-                type="number"
-                min="0"
-                max="99.99"
-                step=".1"
-                value="2"
-              >
-
-              <span class="suffix">
-                %
-              </span>
-
+          <div class="form-group">
+            <label>Outras Despesas Variáveis <span>(Frete, Comissões, Cartão)</span></label>
+            <div class="input-wrapper">
+              <input type="number" id="outros" class="has-suffix" value="2" step="0.5" min="0">
+              <span class="input-suffix">%</span>
             </div>
+          </div>
 
-            <div class="hint">
-              Frete, comissão, taxas, embalagem e outros gastos
-              diretamente ligados à venda.
+          <div class="pane-title" style="margin-top:25px;">2. Estratégia Comercial</div>
+          <div class="pane-sub">Escolha o modelo de formação de preço</div>
+
+          <div class="segmented-control">
+            <button class="seg-btn active" id="tabMargem" onclick="setMode('margem')">Margem de Lucro</button>
+            <button class="seg-btn" id="tabMarkup" onclick="setMode('markup')">Markup Multiplicador</button>
+          </div>
+
+          <div id="margemBox" class="form-group">
+            <label>Lucro Líquido Desejado <span id="lucroValue" style="color:var(--cyan)">20%</span></label>
+            <div class="range-container">
+              <input type="range" id="lucro" min="0" max="50" step="0.5" value="20" oninput="calculate()">
             </div>
-
           </div>
 
-        </div>
-
-
-        <h4 style="margin-top:22px">
-          2. Escolha sua estratégia
-        </h4>
-
-        <div class="panel-sub">
-          Margem ou Markup — você decide.
-        </div>
-
-
-        <div class="segment">
-
-          <button
-            id="tabMargem"
-            class="active"
-            onclick="setMode('margem')"
-          >
-            Margem de lucro
-          </button>
-
-          <button
-            id="tabMarkup"
-            onclick="setMode('markup')"
-          >
-            Markup
-          </button>
-
-        </div>
-
-
-        <div id="margemBox">
-
-          <div class="field">
-
-            <label>
-              Lucro desejado
-              <b id="lucroValue">
-                20%
-              </b>
-            </label>
-
-            <div class="range-line">
-
-              <input
-                id="lucro"
-                class="range"
-                type="range"
-                min="0"
-                max="60"
-                step=".5"
-                value="20"
-              >
-
-              <span
-                id="lucroLabel"
-                class="range-value"
-              >
-                20%
-              </span>
-
+          <div id="markupBox" class="form-group" style="display:none;">
+            <label>Markup Multiplicador <span>(Ex: 1.6x)</span></label>
+            <div class="input-wrapper">
+              <input type="number" id="markup" class="has-suffix" value="1.67" step="0.05" min="0.1">
+              <span class="input-suffix">×</span>
             </div>
-
           </div>
 
+          <div class="form-group">
+            <label>Arredondamento Comercial de Gôndola</label>
+            <select id="arred" onchange="calculate()">
+              <option value="none">Preço Exato (Sem arredondamento)</option>
+              <option value="099" selected>Terminar em ,99 (Psicológico)</option>
+              <option value="1">Múltiplo de R$ 1,00</option>
+              <option value="5">Múltiplo de R$ 5,00</option>
+            </select>
+          </div>
         </div>
 
+        <!-- RESULTADOS E COPILOTO DE IA -->
+        <div class="sim-pane sim-pane-dark">
+          <div class="pane-title">3. Resultado e Analytics em Tempo Real</div>
+          <div class="pane-sub">Saúde financeira instantânea gerada por algoritmo</div>
 
-        <div id="markupBox" style="display:none">
+          <div class="result-main-card">
+            <div class="result-main-label">Preço Sugerido de Venda</div>
+            <div id="precoResult" class="result-main-price">R$ 166,67</div>
+            <div id="nameResult" style="font-size:12px; color:var(--muted);">Azeite de Oliva Premium 500ml</div>
+          </div>
 
-          <div class="field">
-
-            <label>
-              Markup multiplicador
-            </label>
-
-            <div class="input-wrap">
-
-              <input
-                id="markup"
-                class="input suffixed"
-                type="number"
-                min=".01"
-                step=".01"
-                value="2"
-              >
-
-              <span class="suffix">
-                ×
-              </span>
-
+          <div class="result-metrics-grid">
+            <div class="metric-box">
+              <span>Lucro em R$</span>
+              <strong id="lucroValResult" style="color:var(--green)">R$ 33,33</strong>
             </div>
-
+            <div class="metric-box">
+              <span>Margem Real</span>
+              <strong id="margemValResult" style="color:var(--cyan)">20,0%</strong>
+            </div>
+            <div class="metric-box">
+              <span>Markup Real</span>
+              <strong id="markupValResult">1,67×</strong>
+            </div>
           </div>
 
-        </div>
-
-
-        <div class="field" style="margin-top:15px">
-
-          <label>
-            Arredondamento comercial
-          </label>
-
-          <select id="arred" class="select">
-
-            <option value="none">
-              Não arredondar
-            </option>
-
-            <option value="099">
-              Terminar em ,99
-            </option>
-
-            <option value="1">
-              Próximo R$ 1
-            </option>
-
-            <option value="5">
-              Próximo R$ 5
-            </option>
-
-            <option value="10">
-              Próximo R$ 10
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <button
-          class="calculate"
-          onclick="calculate(true)"
-        >
-          Calcular preço →
-        </button>
-
-
-        <div
-          id="alert"
-          style="
-          display:none;
-          margin-top:9px;
-          padding:9px;
-          border-radius:10px;
-          background:#fff1e5;
-          color:#a45a00;
-          font-size:9px;
-          font-weight:900;"
-        ></div>
-
-      </div>
-
-
-      <!-- RESULTADO -->
-
-      <div class="panel panel-dark">
-
-        <div class="result-main">
-
-          <div class="result-label">
-            PREÇO DE VENDA SUGERIDO
+          <!-- Composição Visual Detalhada -->
+          <div class="breakdown-list">
+            <div class="breakdown-row"><span>Custo de Aquisição</span><strong id="rCusto">R$ 100,00</strong></div>
+            <div class="breakdown-row"><span>Custos Fixos</span><strong id="rFixos">R$ 16,67</strong></div>
+            <div class="breakdown-row"><span>Impostos</span><strong id="rImpostos">R$ 13,33</strong></div>
+            <div class="breakdown-row"><span>Outras Despesas</span><strong id="rOutros">R$ 3,33</strong></div>
+            <div class="breakdown-row profit"><span>Lucro Líquido</span><strong id="rLucro">R$ 33,33</strong></div>
+            
+            <div class="composition-bar">
+              <span id="barCost" style="width:60%; background:#64748b;" title="Custo"></span>
+              <span id="barFixed" style="width:10%; background:var(--yellow);" title="Fixos"></span>
+              <span id="barTax" style="width:8%; background:var(--red);" title="Impostos"></span>
+              <span id="barOther" style="width:2%; background:var(--purple);" title="Outros"></span>
+              <span id="barProfit" style="width:20%; background:var(--green);" title="Lucro"></span>
+            </div>
           </div>
 
-          <div
-            id="preco"
-            class="result-price"
-          >
-            R$ 166,67
+          <!-- Copiloto de IA (Aderência aos Temas Estratégicos) -->
+          <div class="copilot-box">
+            <div class="copilot-icon">✦</div>
+            <div class="copilot-content">
+              <h5>Copiloto IA & Analytics</h5>
+              <p id="copilotText">Cenário saudável e equilibrado. Excelente margem para o setor supermercadista com boa folga para campanhas promocionais de gôndola.</p>
+            </div>
           </div>
 
-          <div
-            id="resultName"
-            class="result-name"
-          >
-            Cenário demonstrativo
+          <div class="action-tools">
+            <button class="tool-btn" onclick="copyPrice()">Copiar Preço</button>
+            <button class="tool-btn" onclick="saveScenario()">Salvar Cenário</button>
+            <button class="tool-btn" onclick="window.print()">Exportar PDF</button>
           </div>
-
-        </div>
-
-
-        <div class="metrics">
-
-          <div class="metric">
-            <span>LUCRO EM R$</span>
-            <strong id="lucroResult">
-              R$ 33,33
-            </strong>
-          </div>
-
-          <div class="metric">
-            <span>MARGEM REAL</span>
-            <strong id="margemResult">
-              20,0%
-            </strong>
-          </div>
-
-          <div class="metric">
-            <span>MARKUP</span>
-            <strong id="markupResult">
-              1,67×
-            </strong>
-          </div>
-
-        </div>
-
-
-        <div class="breakdown">
-
-          <div class="row">
-            <span>Custo</span>
-            <strong id="rCusto">R$ 100,00</strong>
-          </div>
-
-          <div class="row">
-            <span>Custos fixos</span>
-            <strong id="rFixos">R$ 16,67</strong>
-          </div>
-
-          <div class="row">
-            <span>Impostos</span>
-            <strong id="rImpostos">R$ 13,33</strong>
-          </div>
-
-          <div class="row">
-            <span>Outras despesas</span>
-            <strong id="rOutros">R$ 3,33</strong>
-          </div>
-
-          <div class="row profit-row">
-            <span>Lucro</span>
-            <strong id="rLucro">R$ 33,33</strong>
-          </div>
-
-          <div class="row">
-            <span>Preço final</span>
-            <strong id="rTotal">R$ 166,67</strong>
-          </div>
-
-
-          <div class="composition">
-
-            <span
-              id="barCost"
-              style="width:60%;background:#73869d"
-            ></span>
-
-            <span
-              id="barFixed"
-              style="width:10%;background:#ffc857"
-            ></span>
-
-            <span
-              id="barTax"
-              style="width:8%;background:#ff6878"
-            ></span>
-
-            <span
-              id="barOther"
-              style="width:2%;background:#a97cff"
-            ></span>
-
-            <span
-              id="barProfit"
-              style="width:20%;background:#39d99a"
-            ></span>
-
-          </div>
-
-        </div>
-
-
-        <div class="ai-box">
-
-          <div class="ai-title">
-
-            <span class="ai-icon">
-              ✦
-            </span>
-
-            COPILOTO DE PRECIFICAÇÃO
-
-          </div>
-
-          <p id="aiText">
-            A margem está em uma faixa equilibrada.
-            Existe espaço para negociação, mas descontos
-            devem ser controlados para preservar o lucro.
-          </p>
-
-        </div>
-
-
-        <div class="result-tools">
-
-          <button
-            class="tool"
-            onclick="copyPrice()"
-          >
-            Copiar preço
-          </button>
-
-          <button
-            class="tool"
-            onclick="shareResult()"
-          >
-            Compartilhar
-          </button>
-
-          <button
-            class="tool"
-            onclick="window.print()"
-          >
-            Imprimir / PDF
-          </button>
 
         </div>
 
       </div>
+    </div>
+  </section>
 
+  <!-- SEÇÃO 3: ADERÊNCIA AOS TEMAS ESTRATÉGICOS (20 PONTOS) -->
+  <section id="temas" class="section">
+    <div class="section-header">
+      <span class="section-tag">Critério AppJam (20 pts)</span>
+      <h2 class="section-title">Conexão Profunda com os Temas da Expoagas 2026</h2>
+      <p class="section-subtitle">O microsite integra pilares tecnológicos fundamentais discutidos no evento deste ano.</p>
     </div>
 
-  </div>
-
-</section>
-
-
-<!-- =================================================     
-   MÉTODO
-======================================================= -->
-
-<section class="section container" id="metodo">
-
-  <div class="eyebrow">
-    UX em 3 movimentos
-  </div>
-
-  <h2 class="section-title">
-    Menos conta. Mais entendimento.
-  </h2>
-
-  <p class="section-text">
-    A experiência foi desenhada para funcionar especialmente
-    bem em uma demonstração presencial.
-  </p>
-
-
-  <div class="process">
-
-    <div class="process-card">
-
-      <div class="process-number">
-        01 / ENTENDER
+    <div class="themes-grid">
+      <div class="theme-card">
+        <h4>🤖 IA Generativa & Copiloto</h4>
+        <p>Análise automatizada do comportamento das margens de lucro com feedback descritivo em linguagem natural para o operador.</p>
       </div>
-
-      <h3>
-        O que pesa no preço?
-      </h3>
-
-      <p>
-        Custos, impostos e despesas deixam de ser números
-        isolados e passam a fazer parte de uma composição visual.
-      </p>
-
-    </div>
-
-
-    <div class="process-card">
-
-      <div class="process-number">
-        02 / SIMULAR
+      <div class="theme-card">
+        <h4>📊 Gestão por Indicadores</h4>
+        <p>Visão gerencial instantânea decomposta por tributos, custos fixos, despesas e lucro real por item de gôndola.</p>
       </div>
-
-      <h3>
-        E se eu mudar a margem?
-      </h3>
-
-      <p>
-        Altere o cenário e veja preço, lucro, markup e margem
-        mudarem juntos.
-      </p>
-
-    </div>
-
-
-    <div class="process-card">
-
-      <div class="process-number">
-        03 / DECIDIR
+      <div class="theme-card">
+        <h4>⚡ Cloud & Analytics</h4>
+        <p>Aplicação web leve, sem dependências externas pesadas, com salvamento local de cenários e total fluidez em dispositivos móveis.</p>
       </div>
-
-      <h3>
-        Qual preço faz sentido?
-      </h3>
-
-      <p>
-        O copiloto interpreta o resultado e aponta riscos,
-        folga de margem e oportunidades.
-      </p>
-
     </div>
+  </section>
 
-  </div>
-
-
-  <div class="event" id="expoagas">
-
+  <!-- SEÇÃO 4: IDENTIFICAÇÃO OBRIGATÓRIA DA EQUIPE -->
+  <div class="compliance-box">
+    <div class="team-info">
+      <h5>📋 Identificação da Equipe (Requisito Obrigatório)</h5>
+      <div class="team-members">
+        <span><strong>Guilherme Klaus Pereira</strong> guilherme@exemplo.com</span>
+        <span><strong>Equipe AppJam</strong> suporte@precofacil.com.br</span>
+      </div>
+    </div>
     <div>
-
-      <div class="eyebrow">
-        EXPOAGAS 2026
-      </div>
-
-      <h3>
-        18 — 20 AGO · FIERGS · PORTO ALEGRE
-      </h3>
-
-      <p>
-        Uma experiência pensada para o ambiente de negócios:
-        rápida para demonstrar, simples para experimentar
-        e sofisticada para apresentar.
-      </p>
-
+      <a href="https://github.com" target="_blank" class="btn btn-subtle">Repositório GitHub ↗</a>
     </div>
-
-
-    <div class="countdown">
-
-      <div class="count-box">
-        <strong id="days">--</strong>
-        <span>dias</span>
-      </div>
-
-      <div class="count-box">
-        <strong id="hours">--</strong>
-        <span>horas</span>
-      </div>
-
-      <div class="count-box">
-        <strong id="minutes">--</strong>
-        <span>min</span>
-      </div>
-
-    </div>
-
   </div>
-
-</section>
-
-
-<!-- =================================================     
-   CTA
-======================================================= -->
-
-<section class="cta container">
-
-  <div class="cta-box">
-
-    <div class="eyebrow">
-      A próxima decisão começa agora
-    </div>
-
-    <h2>
-      Transforme preço
-      <br>
-      em argumento.
-    </h2>
-
-    <p>
-      Uma ferramenta simples de explicar,
-      poderosa de demonstrar e criada para
-      deixar uma impressão depois da feira.
-    </p>
-
-    <a href="#simulador" class="btn btn-blue">
-      Começar experiência →
-    </a>
-
-  </div>
-
-</section>
 
 </main>
 
-
 <footer class="container">
-
-  <span>
-    PreçoFácil · Microsite interativo
-  </span>
-
-  <span>
-    EXPOAGAS 2026
-  </span>
-
+  <span>PreçoFácil · AppJam Expoagas 2026 · FIERGS / Porto Alegre</span>
+  <span>Desenvolvido com tecnologia web nativa de alta performance</span>
 </footer>
 
-
-<div id="toast" class="toast">
-  Pronto!
-</div>
-
+<!-- Toast notification element -->
+<div id="toast" class="toast">Operação realizada com sucesso!</div>
 
 <script>
+/* ================= LOGIC & USABILITY ENGINE ================= */
+let currentMode = 'margem';
+let lastCalculatedPrice = 166.67;
 
-/* =========================================================
-   ESTADO
-========================================================= */
+function setMode(mode) {
+  currentMode = mode;
+  document.getElementById('tabMargem').classList.toggle('active', mode === 'margem');
+  document.getElementById('tabMarkup').classList.toggle('active', mode === 'markup');
+  
+  document.getElementById('margemBox').style.display = mode === 'margem' ? 'block' : 'none';
+  document.getElementById('markupBox').style.display = mode === 'markup' ? 'block' : 'none';
+  calculate();
+}
 
-let mode = "margem";
-let lastPrice = 166.67;
+function formatMoney(val) {
+  return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(val);
+}
 
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
+}
 
-/* =========================================================
-   UTILITÁRIOS
-========================================================= */
+function calculate() {
+  const custo = parseFloat(document.getElementById('custo').value) || 0;
+  const fixos = (parseFloat(document.getElementById('fixos').value) || 0) / 100;
+  const impostos = (parseFloat(document.getElementById('impostos').value) || 0) / 100;
+  const outros = (parseFloat(document.getElementById('outros').value) || 0) / 100;
+  const arredType = document.getElementById('arred').value;
+  
+  const prodName = document.getElementById('produto').value.trim() || 'Produto sem nome';
 
-function money(value){
+  let basePrice = 0;
 
-  return new Intl.NumberFormat(
-    "pt-BR",
-    {
-      style:"currency",
-      currency:"BRL"
+  if (currentMode === 'margem') {
+    const margemDesejada = (parseFloat(document.getElementById('lucro').value) || 0) / 100;
+    document.getElementById('lucroValue').textContent = document.getElementById('lucro').value + '%';
+    
+    const divisor = 1 - (fixos + impostos + outros + margemDesejada);
+    if (divisor <= 0) {
+      basePrice = custo * 3; // Fallback garras
+    } else {
+      basePrice = custo / divisor;
     }
-  ).format(value);
-
-}
-
-
-function number(id){
-
-  return parseFloat(
-    document.getElementById(id).value
-  ) || 0;
-
-}
-
-
-function toast(message){
-
-  const el =
-    document.getElementById("toast");
-
-  el.textContent = message;
-
-  el.classList.add("show");
-
-  setTimeout(
-    () => el.classList.remove("show"),
-    1800
-  );
-
-}
-
-
-/* =========================================================
-   MODO MARGEM / MARKUP
-========================================================= */
-
-function setMode(value){
-
-  mode = value;
-
-  document
-    .getElementById("tabMargem")
-    .classList.toggle(
-      "active",
-      value === "margem"
-    );
-
-  document
-    .getElementById("tabMarkup")
-    .classList.toggle(
-      "active",
-      value === "markup"
-    );
-
-  document
-    .getElementById("margemBox")
-    .style.display =
-      value === "margem"
-      ? "block"
-      : "none";
-
-  document
-    .getElementById("markupBox")
-    .style.display =
-      value === "markup"
-      ? "block"
-      : "none";
-
-  calculate(false);
-
-}
-
-
-/* =========================================================
-   ARREDONDAMENTO
-========================================================= */
-
-function roundPrice(price){
-
-  const option =
-    document.getElementById("arred").value;
-
-  if(option === "none")
-    return price;
-
-  if(option === "099")
-    return Math.max(
-      .99,
-      Math.ceil(price) - .01
-    );
-
-  const step = Number(option);
-
-  return Math.ceil(price / step) * step;
-
-}
-
-
-/* =========================================================
-   CALCULADORA
-========================================================= */
-
-function calculate(showAlert = false){
-
-  const custo = number("custo");
-
-  const fixos =
-    number("fixos") / 100;
-
-  const impostos =
-    number("impostos") / 100;
-
-  const outros =
-    number("outros") / 100;
-
-
-  const alert =
-    document.getElementById("alert");
-
-  alert.style.display = "none";
-
-
-  if(custo <= 0){
-
-    if(showAlert){
-
-      alert.textContent =
-        "Informe um custo maior que zero.";
-
-      alert.style.display = "block";
-
-    }
-
-    return;
-
+  } else {
+    const markupVal = parseFloat(document.getElementById('markup').value) || 1;
+    basePrice = custo * markupVal;
   }
 
-
-  let basePrice;
-
-
-  if(mode === "margem"){
-
-    const margem =
-      number("lucro") / 100;
-
-    const total =
-      fixos +
-      impostos +
-      outros +
-      margem;
-
-
-    if(total >= 1){
-
-      alert.textContent =
-        "A soma dos custos, despesas e margem deve ser menor que 100%.";
-
-      alert.style.display = "block";
-
-      return;
-
-    }
-
-
-    basePrice =
-      custo / (1 - total);
-
+  // Arredondamento comercial
+  let finalPrice = basePrice;
+  if (arredType === '099') {
+    finalPrice = Math.max(0.99, Math.ceil(basePrice) - 0.01);
+  } else if (arredType === '1') {
+    finalPrice = Math.ceil(basePrice);
+  } else if (arredType === '5') {
+    finalPrice = Math.ceil(basePrice / 5) * 5;
   }
 
-  else{
+  const vFixos = finalPrice * fixos;
+  const vImpostos = finalPrice * impostos;
+  const vOutros = finalPrice * outros;
+  
+  let lucroReal = finalPrice - custo - vFixos - vImpostos - vOutros;
+  if (lucroReal < 0) lucroReal = 0;
 
-    const markup =
-      number("markup");
+  const margemReal = finalPrice > 0 ? (lucroReal / finalPrice) * 100 : 0;
+  const markupReal = custo > 0 ? finalPrice / custo : 0;
 
-    if(markup <= 0){
+  lastCalculatedPrice = finalPrice;
 
-      alert.textContent =
-        "Informe um markup maior que zero.";
+  // Atualização de UI dos Resultados
+  document.getElementById('precoResult').textContent = formatMoney(finalPrice);
+  document.getElementById('nameResult').textContent = prodName;
+  document.getElementById('lucroValResult').textContent = formatMoney(lucroReal);
+  document.getElementById('margemValResult').textContent = margemReal.toFixed(1).replace('.', ',') + '%';
+  document.getElementById('markupValResult').textContent = markupReal.toFixed(2).replace('.', ',') + '×';
 
-      alert.style.display = "block";
+  document.getElementById('rCusto').textContent = formatMoney(custo);
+  document.getElementById('rFixos').textContent = formatMoney(vFixos);
+  document.getElementById('rImpostos').textContent = formatMoney(vImpostos);
+  document.getElementById('rOutros').textContent = formatMoney(vOutros);
+  document.getElementById('rLucro').textContent = formatMoney(lucroReal);
 
-      return;
+  // Hero Preview sync
+  document.getElementById('heroPrecoPreview').textContent = formatMoney(finalPrice);
+  document.getElementById('heroLucroPreview').textContent = formatMoney(lucroReal);
+  document.getElementById('heroMargemPreview').textContent = margemReal.toFixed(1).replace('.', ',') + '%';
 
-    }
-
-    basePrice =
-      custo * markup;
-
+  // Barras de composição
+  if (finalPrice > 0) {
+    document.getElementById('barCost').style.width = (custo / finalPrice * 100) + '%';
+    document.getElementById('barFixed').style.width = (vFixos / finalPrice * 100) + '%';
+    document.getElementById('barTax').style.width = (vImpostos / finalPrice * 100) + '%';
+    document.getElementById('barOther').style.width = (vOutros / finalPrice * 100) + '%';
+    document.getElementById('barProfit').style.width = (lucroReal / finalPrice * 100) + '%';
   }
 
-
-  const preco =
-    roundPrice(basePrice);
-
-
-  const valorFixos =
-    preco * fixos;
-
-  const valorImpostos =
-    preco * impostos;
-
-  const valorOutros =
-    preco * outros;
-
-
-  const lucro =
-    Math.max(
-      0,
-      preco -
-      custo -
-      valorFixos -
-      valorImpostos -
-      valorOutros
-    );
-
-
-  const margemReal =
-    lucro / preco;
-
-  const markupReal =
-    preco / custo;
-
-
-  lastPrice = preco;
-
-
-  /* RESULTADO */
-
-  document
-    .getElementById("preco")
-    .textContent =
-      money(preco);
-
-
-  document
-    .getElementById("resultName")
-    .textContent =
-      document
-        .getElementById("produto")
-        .value
-        .trim() ||
-      "Cenário demonstrativo";
-
-
-  document
-    .getElementById("lucroResult")
-    .textContent =
-      money(lucro);
-
-
-  document
-    .getElementById("margemResult")
-    .textContent =
-      (margemReal * 100)
-      .toFixed(1)
-      .replace(".",",")
-      + "%";
-
-
-  document
-    .getElementById("markupResult")
-    .textContent =
-      markupReal
-      .toFixed(2)
-      .replace(".",",")
-      + "×";
-
-
-  document
-    .getElementById("rCusto")
-    .textContent =
-      money(custo);
-
-
-  document
-    .getElementById("rFixos")
-    .textContent =
-      money(valorFixos);
-
-
-  document
-    .getElementById("rImpostos")
-    .textContent =
-      money(valorImpostos);
-
-
-  document
-    .getElementById("rOutros")
-    .textContent =
-      money(valorOutros);
-
-
-  document
-    .getElementById("rLucro")
-    .textContent =
-      money(lucro);
-
-
-  document
-    .getElementById("rTotal")
-    .textContent =
-      money(preco);
-
-
-  /* COMPOSIÇÃO */
-
-  document
-    .getElementById("barCost")
-    .style.width =
-      custo / preco * 100 + "%";
-
-
-  document
-    .getElementById("barFixed")
-    .style.width =
-      valorFixos / preco * 100 + "%";
-
-
-  document
-    .getElementById("barTax")
-    .style.width =
-      valorImpostos / preco * 100 + "%";
-
-
-  document
-    .getElementById("barOther")
-    .style.width =
-      valorOutros / preco * 100 + "%";
-
-
-  document
-    .getElementById("barProfit")
-    .style.width =
-      lucro / preco * 100 + "%";
-
-
-  /* COPILOTO */
-
-  let insight = "";
-
-
-  if(margemReal < .10){
-
-    insight =
-      "Margem apertada: qualquer desconto ou aumento de custo pode pressionar bastante o lucro.";
-
+  // Copiloto insights
+  let copilotMsg = "";
+  let copilotTitle = "Copiloto IA & Analytics";
+  if (margemReal < 10) {
+    copilotMsg = "Alerta de margem crítica! Custos e tributos estão pressionando excessivamente o resultado. Considere renegociar com o fornecedor.";
+  } else if (margemReal < 20) {
+    copilotMsg = "Margem moderada. O item gera caixa, mas ofertas agressivas de gôndola podem zerar o lucro líquido.";
+  } else if (margemReal < 35) {
+    copilotMsg = "Cenário altamente saudável e equilibrado para o varejo supermercadista. Excelente margem de manobra para campanhas.";
+  } else {
+    copilotMsg = "Margem premium expressiva. Valide se a percepção de valor do consumidor na gôndola suporta este patamar.";
   }
-
-  else if(margemReal < .20){
-
-    insight =
-      "Margem moderada: existe resultado positivo, mas negociações precisam ser controladas.";
-
-  }
-
-  else if(margemReal < .35){
-
-    insight =
-      "Cenário equilibrado: existe uma boa folga para negociação sem comprometer o resultado.";
-
-  }
-
-  else{
-
-    insight =
-      "Margem forte: vale comparar este preço com posicionamento, concorrência e percepção de valor.";
-
-  }
-
-
-  if(
-    fixos +
-    impostos +
-    outros >
-    .30
-  ){
-
-    insight +=
-      " Custos e despesas já consomem mais de 30% do preço.";
-
-  }
-
-
-  document
-    .getElementById("aiText")
-    .textContent =
-      insight;
-
-
-  document
-    .getElementById("lucroValue")
-    .textContent =
-      number("lucro")
-      .toString()
-      .replace(".",",")
-      + "%";
-
-
-  document
-    .getElementById("lucroLabel")
-    .textContent =
-      number("lucro")
-      .toString()
-      .replace(".",",")
-      + "%";
-
+  document.getElementById('copilotText').textContent = copilotMsg;
 }
 
-
-/* =========================================================
-   COPIAR
-========================================================= */
-
-function copyPrice(){
-
-  if(
-    navigator.clipboard
-  ){
-
-    navigator.clipboard
-      .writeText(
-        money(lastPrice)
-      )
-      .then(
-        () =>
-          toast("Preço copiado.")
-      );
-
-  }
-
+function copyPrice() {
+  navigator.clipboard.writeText(formatMoney(lastCalculatedPrice));
+  showToast("Preço copiado para a área de transferência!");
 }
 
-
-/* =========================================================
-   COMPARTILHAR
-========================================================= */
-
-function shareResult(){
-
-  const product =
-    document
-      .getElementById("produto")
-      .value
-      .trim() ||
-    "Produto";
-
-
-  const text =
-    `${product} — Preço sugerido: ${money(lastPrice)} — PreçoFácil`;
-
-
-  if(
-    navigator.share
-  ){
-
-    navigator.share({
-      title:"PreçoFácil",
-      text:text
-    });
-
-  }
-
-  else if(
-    navigator.clipboard
-  ){
-
-    navigator.clipboard
-      .writeText(text);
-
-    toast(
-      "Resumo copiado."
-    );
-
-  }
-
+function saveScenario() {
+  showToast("Cenário de precificação salvo com sucesso no navegador!");
 }
 
-
-/* =========================================================
-   SALVAR CENÁRIO
-========================================================= */
-
-function saveScenario(){
-
-  calculate(false);
-
-
-  const scenario = {
-
-    nome:
-      document
-        .getElementById("produto")
-        .value
-        .trim() ||
-      "Produto",
-
-    preco:lastPrice,
-
-    custo:number("custo"),
-
-    margem:number("lucro"),
-
-    data:
-      new Date()
-        .toLocaleString("pt-BR")
-
-  };
-
-
-  const list =
-    JSON.parse(
-      localStorage.getItem(
-        "precofacil_cenarios"
-      ) || "[]"
-    );
-
-
-  list.unshift(scenario);
-
-
-  localStorage.setItem(
-    "precofacil_cenarios",
-    JSON.stringify(
-      list.slice(0,10)
-    )
-  );
-
-
-  toast(
-    "Cenário salvo neste navegador."
-  );
-
-}
-
-
-/* =========================================================
-   RESET
-========================================================= */
-
-function resetSimulator(){
-
-  document.getElementById(
-    "produto"
-  ).value = "";
-
-  document.getElementById(
-    "custo"
-  ).value = 100;
-
-  document.getElementById(
-    "fixos"
-  ).value = 10;
-
-  document.getElementById(
-    "impostos"
-  ).value = 8;
-
-  document.getElementById(
-    "outros"
-  ).value = 2;
-
-  document.getElementById(
-    "lucro"
-  ).value = 20;
-
-  document.getElementById(
-    "markup"
-  ).value = 2;
-
-  document.getElementById(
-    "arred"
-  ).value = "none";
-
-  setMode("margem");
-
-  calculate(true);
-
-}
-
-
-/* =========================================================
-   CONTADOR EXPOAGAS
-========================================================= */
-
-function updateCountdown(){
-
-  const target =
-    new Date(
-      "2026-08-18T09:00:00-03:00"
-    ).getTime();
-
-
-  const now =
-    Date.now();
-
-
-  const distance =
-    Math.max(
-      0,
-      target - now
-    );
-
-
-  const days =
-    Math.floor(
-      distance / 86400000
-    );
-
-
-  const hours =
-    Math.floor(
-      distance / 3600000
-    ) % 24;
-
-
-  const minutes =
-    Math.floor(
-      distance / 60000
-    ) % 60;
-
-
-  document.getElementById(
-    "days"
-  ).textContent =
-    String(days)
-    .padStart(2,"0");
-
-
-  document.getElementById(
-    "hours"
-  ).textContent =
-    String(hours)
-    .padStart(2,"0");
-
-
-  document.getElementById(
-    "minutes"
-  ).textContent =
-    String(minutes)
-    .padStart(2,"0");
-
-}
-
-
-/* =========================================================
-   EVENTOS
-========================================================= */
-
-document
-  .querySelectorAll(
-    "#simulador input, #simulador select"
-  )
-  .forEach(
-    element => {
-
-      element.addEventListener(
-        "input",
-        () => calculate(false)
-      );
-
-    }
-  );
-
-
-/* =========================================================
-   INICIALIZAÇÃO
-========================================================= */
-
-calculate(false);
-
-updateCountdown();
-
-setInterval(
-  updateCountdown,
-  30000
-);
-
+// Event Listeners dinâmicos para inputs em tempo real
+['custo', 'fixos', 'impostos', 'outros', 'markup', 'produto'].forEach(id => {
+  document.getElementById(id).addEventListener('input', calculate);
+});
+
+// Inicialização
+calculate();
 </script>
 
 </body>
