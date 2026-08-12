@@ -87,9 +87,9 @@ a{
   gap:16px;
 }
 
-/* Logo AGAS fornecida adaptada em SVG perfeitamente legível no escuro */
+/* Logo AGAS PNG com inversão inteligente para o fundo escuro */
 .brand-logo{
-  height:36px;
+  height:38px;
   width:auto;
   object-fit:contain;
   filter: brightness(0) invert(1);
@@ -477,14 +477,6 @@ input[type="range"]{
   outline:none;
 }
 
-.range-output{
-  min-width:50px;
-  text-align:right;
-  font-weight:700;
-  font-size:14px;
-  color:var(--cyan);
-}
-
 /* Results panel */
 .result-main-card{
   background:rgba(5,13,24,.6);
@@ -636,7 +628,7 @@ input[type="range"]{
   background:rgba(255,255,255,.08);
 }
 
-/* ================= STRATEGIC THEMES & APPJAM ================= */
+/* ================= STRATEGIC THEMES ================= */
 .themes-grid{
   display:grid;
   grid-template-columns:repeat(3, 1fr);
@@ -661,7 +653,7 @@ input[type="range"]{
   color:var(--muted);
 }
 
-/* ================= TEAM & COMPLIANCE FOOTER ================= */
+/* ================= COMPLIANCE & TEAM ================= */
 .compliance-box{
   background:linear-gradient(145deg, #0a1424, #070d17);
   border:1px solid var(--line);
@@ -706,7 +698,6 @@ footer{
   align-items:center;
 }
 
-/* Toast notification */
 .toast{
   position:fixed;
   bottom:30px;
@@ -727,7 +718,6 @@ footer{
   transform:translate(-50%, 0);
 }
 
-/* RESPONSIVE */
 @media(max-width:900px){
   .hero, .problem-grid, .simulator-grid, .themes-grid{
     grid-template-columns:1fr;
@@ -743,20 +733,8 @@ footer{
 <nav class="nav">
   <div class="container nav-inner">
     <div class="brand">
-      <!-- Logo AGAS em vetor/SVG otimizado conforme anexo -->
-      <svg class="brand-logo" viewBox="0 0 300 95" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path d="M11.5 67.2H25.4L29.2 78H41.5L29 44.5H18.2L5.8 78H17.9L11.5 67.2ZM21.9 53.6L25.9 61.2H17.8L21.9 53.6Z"/>
-        <path d="M46.7 44.5H58.6V78H46.7V44.5Z"/>
-        <path d="M64.2 44.5H76.1V67.5H97V78H64.2V44.5Z"/>
-        <path d="M102.7 44.5H114.6V78H102.7V44.5Z"/>
-        <path d="M123.6 44.5H135.5V67.5H156.4V78H123.6V44.5Z"/>
-        <path d="M161.9 44.5H176.7L184.2 60.5L191.7 44.5H206.5V78H194.6V56.7L188.3 69.2H180.1L173.8 56.7V78H161.9V44.5Z"/>
-        <path d="M1.3 85.3H9.8V88.8H3.3V91.6H9.1V95H3.3V97.7H9.8V101.2H1.3V85.3Z"/>
-        <!-- Carrinho estilizado integrado no logo AGAS -->
-        <path d="M190 20L198 45H295L285 20H190Z" opacity="0.6"/>
-        <circle cx="210" cy="85" r="8"/>
-        <circle cx="270" cy="85" r="8"/>
-      </svg>
+      <!-- Imagem limpa apontando para o logo.png local com tratamento profissional -->
+      <img src="logo.png" alt="AGAS Logo" class="brand-logo">
       <div class="brand-divider"></div>
       <div class="brand-text">
         <strong>PreçoFácil</strong>
@@ -828,7 +806,7 @@ footer{
     </div>
   </section>
 
-  <!-- SEÇÃO 1: PROBLEMA E OPORTUNIDADE (30 PONTOS) -->
+  <!-- SEÇÃO 1: PROBLEMA E OPORTUNIDADE -->
   <section id="problema" class="section">
     <div class="section-header">
       <span class="section-tag">Relevância para o Setor</span>
@@ -852,7 +830,7 @@ footer{
     </div>
   </section>
 
-  <!-- SEÇÃO 2: SIMULADOR INTELIGENTE (CORE UX & TÉCNICA) -->
+  <!-- SEÇÃO 2: SIMULADOR INTELIGENTE -->
   <section id="simulador" class="section">
     <div class="section-header">
       <span class="section-tag">Experiência Principal (UX & Inovação)</span>
@@ -983,7 +961,7 @@ footer{
             </div>
           </div>
 
-          <!-- Copiloto de IA (Aderência aos Temas Estratégicos) -->
+          <!-- Copiloto de IA -->
           <div class="copilot-box">
             <div class="copilot-icon">✦</div>
             <div class="copilot-content">
@@ -1004,7 +982,7 @@ footer{
     </div>
   </section>
 
-  <!-- SEÇÃO 3: ADERÊNCIA AOS TEMAS ESTRATÉGICOS (20 PONTOS) -->
+  <!-- SEÇÃO 3: TEMAS ESTRATÉGICOS -->
   <section id="temas" class="section">
     <div class="section-header">
       <span class="section-tag">Critério AppJam (20 pts)</span>
@@ -1028,7 +1006,7 @@ footer{
     </div>
   </section>
 
-  <!-- SEÇÃO 4: IDENTIFICAÇÃO OBRIGATÓRIA DA EQUIPE -->
+  <!-- IDENTIFICAÇÃO OBRIGATÓRIA DA EQUIPE -->
   <div class="compliance-box">
     <div class="team-info">
       <h5>📋 Identificação da Equipe (Requisito Obrigatório)</h5>
@@ -1095,7 +1073,7 @@ function calculate() {
     
     const divisor = 1 - (fixos + impostos + outros + margemDesejada);
     if (divisor <= 0) {
-      basePrice = custo * 3; // Fallback garras
+      basePrice = custo * 3;
     } else {
       basePrice = custo / divisor;
     }
@@ -1104,7 +1082,6 @@ function calculate() {
     basePrice = custo * markupVal;
   }
 
-  // Arredondamento comercial
   let finalPrice = basePrice;
   if (arredType === '099') {
     finalPrice = Math.max(0.99, Math.ceil(basePrice) - 0.01);
@@ -1126,7 +1103,6 @@ function calculate() {
 
   lastCalculatedPrice = finalPrice;
 
-  // Atualização de UI dos Resultados
   document.getElementById('precoResult').textContent = formatMoney(finalPrice);
   document.getElementById('nameResult').textContent = prodName;
   document.getElementById('lucroValResult').textContent = formatMoney(lucroReal);
@@ -1139,12 +1115,10 @@ function calculate() {
   document.getElementById('rOutros').textContent = formatMoney(vOutros);
   document.getElementById('rLucro').textContent = formatMoney(lucroReal);
 
-  // Hero Preview sync
   document.getElementById('heroPrecoPreview').textContent = formatMoney(finalPrice);
   document.getElementById('heroLucroPreview').textContent = formatMoney(lucroReal);
   document.getElementById('heroMargemPreview').textContent = margemReal.toFixed(1).replace('.', ',') + '%';
 
-  // Barras de composição
   if (finalPrice > 0) {
     document.getElementById('barCost').style.width = (custo / finalPrice * 100) + '%';
     document.getElementById('barFixed').style.width = (vFixos / finalPrice * 100) + '%';
@@ -1153,9 +1127,7 @@ function calculate() {
     document.getElementById('barProfit').style.width = (lucroReal / finalPrice * 100) + '%';
   }
 
-  // Copiloto insights
   let copilotMsg = "";
-  let copilotTitle = "Copiloto IA & Analytics";
   if (margemReal < 10) {
     copilotMsg = "Alerta de margem crítica! Custos e tributos estão pressionando excessivamente o resultado. Considere renegociar com o fornecedor.";
   } else if (margemReal < 20) {
@@ -1177,12 +1149,10 @@ function saveScenario() {
   showToast("Cenário de precificação salvo com sucesso no navegador!");
 }
 
-// Event Listeners dinâmicos para inputs em tempo real
 ['custo', 'fixos', 'impostos', 'outros', 'markup', 'produto'].forEach(id => {
   document.getElementById(id).addEventListener('input', calculate);
 });
 
-// Inicialização
 calculate();
 </script>
 
